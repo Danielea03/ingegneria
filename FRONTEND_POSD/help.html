@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="it"> <!--Imposta la lingua utilizzata nella pagina-->
+<head>
+
+    <title>Gioca in Sicurezza</title>
+    <link rel="icon" href="img_layout/favicon.png">
+    <meta name="author" content="Giuseppe Giovanni Piccinno">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="license" href="https://www.gnu.org/licenses/gpl-3.0.html"> <!--Licenza-->
+
+<!--ELENCO RIFERIMENTI CSS STRUTTURA-->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap">
+<link rel="stylesheet" href="fixed_layout.css">
+<link rel="stylesheet" href="home_exit.css">
+<link rel="stylesheet" href="menu_home.css">
+<!--METTERE QUI SOTTO RIFERIMENTI CSS NODI-->
+   
+<!--ELENCO RISORSE DA CARICARE PRIMA DI ESEGUIRE LA PAGINA / evita che alcuni elementi non vengano visualizzati perchè in caricamento-->
+    <!--Le risorse sono as="style"/"script"/ecc. quindi codice CSS, font, script, immagini, video, musica, ecc.-->
+    <link rel="preload" as=""  href="">
+
+<!--ELENCO PAGINE ADIACENTI DA PRECARICARE/ aumenta la velocità di navigazione tra link elencati-->
+    <link rel="prerender" href="">
+    
+<!--ELENCO RISORSE DELLE PAGINE ADIACENTI DA PRECARICARE / aumenta la velocità di navigazione tra link elencati-->
+    <!--Le risorse sono as="style"/"script"/ecc. quindi codice CSS, font, script, immagini, video, musica, ecc.-->
+    <link rel="prefetch" as="" href="">
+
+</head>
+
+<!-- PRIMA DI SCRIVERE CODICE LEGGI LA GUIDA -->
+<body>
+
+<!--HEADER-->
+<div class="container_header">
+        <div class="home"><a href="1_home.html" class="home_container"><div><img src="omino_seduto_1.png"></div><span>HOME</span></a></div>
+        <div class="nav_header">  
+            <a href="javascript:void(0);" onclick="goBack()"><img src="contenuto_precedente_senza_cursore.png" class=""></a> 
+            <a href="javascript:void(0);" onclick="goForward()"><img src="contenuto_successivo_senza_cursore.png" class=""></a> 
+        </div>
+        <div class="history"></div>
+        <div class="help_header"><a href="help.html" class="helper_button" ><img src="helper_senza_cursore.png" ></a></div>
+        <div class="exit"><a href="#" id="popup-trigger" class="exit_container"><div><span>ESCI</span></div><img src="omino_che_corre.png"></a></div>
+</div>
+<div id="popup">
+    <div class="exit_icon"><img src="exit_close_senza_cursore.png" alt="Chiudi Popup" onclick="closePopup()"></div>
+    <div class="exit_popup_txt">Select an option from the following menu:</div>
+    <div class="exit_button_container">
+        <div class="exit_button" onclick="closeWindow()"><div class="exit_button_txt">Return to desktop</div></div>
+        <div class="exit_button" onclick="window.location.href='1_home.html'"><div class="exit_button_txt">Back to Home</div></div>
+    </div>
+</div>
+<!--FINE HEADER-->
+
+
+<!--PARTE CENTRALE-->
+
+<div class="page_help">
+    <img src="help.png" >
+</div>
+
+<!--FINE PARTE CENTRALE-->
+
+
+
+
+<!--FOOTER-->
+<div class="footer"></div>
+
+<!--ELENCO RIFERIMENTI JAVASCRIPT STRUTTURA-->
+<script src="interface.js" ></script>
+<script>
+    function goBack() {
+        window.history.back();
+    }
+    
+    function goForward() {
+        window.history.forward();
+    }
+    </script>
+<!--METTERE QUI SOTTO RIFERIMENTI JAVASCRIPT NODI-->
+</body>
+</html>

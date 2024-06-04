@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <title>POSD</title>
+    <link rel="icon" href="">
+    <meta name="author" content="Giuseppe Giovanni Piccinno">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="license" href="https://www.gnu.org/licenses/gpl-3.0.html">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap">
+    <link rel="stylesheet" href="fixed_layout.css">
+    <link rel="stylesheet" href="home_exit.css">
+    <link rel="stylesheet" href="menu_home.css">
+    <link rel="stylesheet" href="text.css">
+    <link rel="stylesheet" href="hidden_content.css">
+</head>
+<body>
+
+<!--HEADER-->
+<div class="container_header">
+    <div class="home"><a href="posd.html" class="home_container"><div><img src="omino_seduto_1.png"></div><span>HOME</span></a></div>
+    <div class="nav_header">  
+        <a href="javascript:void(0);" onclick="goBack()"><img src="contenuto_precedente_senza_cursore.png" class=""></a> 
+        <a href="javascript:void(0);" onclick="goForward()"><img src="contenuto_successivo_senza_cursore.png" class=""></a> 
+    </div>
+    <div class="history"></div>
+    <div class="help_header"><a href="help.html" class="helper_button" ><img src="helper_senza_cursore.png" ></a></div>
+    <div class="exit"><a href="#" id="popup-trigger" class="exit_container"><div><span>EXIT</span></div><img src="omino_che_corre.png"></a></div>
+</div>
+<div id="popup">
+    <div class="exit_icon"><img src="exit_close_senza_cursore.png" alt="Chiudi Popup" onclick="closePopup()"></div>
+    <div class="exit_popup_txt">Select an option from the following menu:</div>
+    <div class="exit_button_container">
+        <div class="exit_button" onclick="closeWindow()"><div class="exit_button_txt">Return to desktop</div></div>
+        <div class="exit_button" onclick="window.location.href='1_home.html'"><div class="exit_button_txt">Back to Home</div></div>
+    </div>
+</div>
+<!--FINE HEADER-->
+
+<!--MENU-->
+<div class="menu_section">
+    <div class="left_section">
+        <div class="text text2">Welcome!</div>
+        <div class="text text2">Select an option from the following menu:</div>
+        <div class="menu">
+            <div class="box">
+                <div class="dropdown">Explore the knowledge base
+                    <span class="left-icon"></span>
+                    <span class="right-icon"></span>
+                    <div class="items">
+                        <a href="javascript:void(0);" data-content="content4" style="--i:1;"><span></span>Topics available in the knowledge base</a>
+                        <a href="javascript:void(0);" data-content="content1" style="--i:1;"><span></span>Search for element</a>
+                        <a href="javascript:void(0);" data-content="content2" style="--i:2;"><span></span>Show all elements of a topic</a>
+                        <a href="javascript:void(0);" data-content="content3" style="--i:2;"><span></span>Search for associations between elements</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="right_section">
+        <!-- Questo è il div in cui verrà caricato il contenuto dinamico -->
+    </div>
+</div>
+<!--FINE MENU-->
+
+<div id="response_op_user" class="response_operation_user">  </div>
+<div id="element-details" class="results">
+   
+
+</div> <!-- Div per contenere i dettagli dell'elemento -->
+
+
+
+
+
+
+<!--CONTENUTO NASCOSTO-->
+<div id="content4" class="hidden-content">
+    <div class="tf3">Topics available in the PKB:</div>
+    <div id="element-buttons" class=""></div> 
+</div>
+
+<div id="content1" class="hidden-content">
+    <div class="tf3">Search for an element in the PKB</div>
+    <div class="tf2">Enter search criteria* and press the corresponding button to initiate it.</div>
+
+    <div class="input-container">
+        <input type="text" id="search-api-input_element" placeholder="Enter topic...">
+        <input type="text" id="search-id-input_element" placeholder="Enter ID...">
+        <input type="text" id="search-name-input_element" placeholder="Enter Name...">
+    </div>
+    <div class="input-container">
+        <button class="dropdown-buttons" onclick="fetchElementId()">Search by ID</button>
+        <button class="dropdown-buttons" onclick="fetchElementName()">Search by Name</button>
+    </div>
+    <div class="input-container">
+        <input type="text" id="search-number-input_element" placeholder="Enter GDPR article number...">
+        <input type="text" id="search-code-input_element" placeholder="Enter Vulnerability Code...">
+    </div>
+    <div class="input-container">
+        <button class="dropdown-buttons1" onclick="fetchElementGDPR()">Search by Num</button>
+        <button class="dropdown-buttons" onclick="fetchElementVuln()">Search by Code</button>
+    </div>
+    <div class="tf1" style="font-style: italic;">*Each search requires filling in the corresponding field. Additionally, "Topic" is mandatory for searching by ID and by Name.</div>
+    
+</div>  
+
+
+
+<div id="content2" class="hidden-content">
+    <div class="tf3">Show all elements of a topic in the PKB</div>
+    <div id="element-buttons" class=""></div> 
+    <div class="tf2">Enter the topic and click on 'Show List':</div>
+    <div class="input_list-container">
+        <input type="text" id="search-list" placeholder="Enter topic...">
+        <button class="dropdown-buttons" onclick="fetchLista()">Show List</button>
+    </div>
+    
+</div>
+
+
+
+<div id="content3" class="hidden-content">
+    <h2 class="tf2">Search for associations between elements</h2>
+    <div class="tf2">Enter the starting topic, element name, and the target topic to find related associations:</div>
+    <div class="input-container">
+        <input type="text" id="search-api-input_element" placeholder="Enter starting topic...">
+        <input type="text" id="search-name-input_element" placeholder="Enter element Name...">
+        <input type="text" id="search-api-input_association_topic" placeholder="Enter association topic...">
+    </div>
+    <div class="input-container">
+        <button class="dropdown-buttons_association" onclick="fetchAssociations()">Search Association</button>
+    </div>
+    <div class="tf1" style="font-style: italic;">*Please fill in all the fields to search for associations.</div>
+</div>
+
+
+<!--FINE CONTENUTO NASCOSTO-->
+
+
+
+<!-- FOOTER -->
+<div class="footer">
+    <div class="send_feedback_dropdown">
+        <img src="comunicazione_senza_cursore.png" alt="Send Feedback/Report" class="send_icon">
+        <div id="footerFeedbackDropdown" class="footer-items hidden">
+            <a href="javascript:void(0);" onclick="sendFeedback()"><span></span>Send Feedback</a>
+            <a href="javascript:void(0);" onclick="reportVulnerability()"><span></span>Report Vulnerability</a>
+        </div>
+    </div>
+</div>
+
+<!--ELENCO RIFERIMENTI JAVASCRIPT STRUTTURA-->
+<script src="interface.js"></script>
+<script src="view.js"></script>
+<script src="controller_association_search.js"></script>
+<script src="controller_send_feedback_report.js"></script>
+<!--METTERE QUI SOTTO RIFERIMENTI JAVASCRIPT NODI-->
+</body>
+</html>

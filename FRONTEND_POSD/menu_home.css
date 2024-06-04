@@ -1,0 +1,248 @@
+.popup-quiz{
+    display: grid;
+    position: fixed;
+    top: 62%;
+    left: 60%;
+    transform: translate(-100%, -100%);
+    width: 460px; 
+    height: 205px;
+    border-radius: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    grid-template-rows: 45px 70px 90px;
+    grid-template-columns: 415px 45px;
+    display: none;
+  }
+
+
+.header_menu {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.text1 {
+    font-family: 'Beyonders', sans-serif;
+font-size: 56px;
+}
+
+.text2{
+    font-family: Lato;
+font-size: 33px;
+}
+
+.menu{
+    background-color: white;
+    font-family: Lato;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Impostazioni per la zona delle immagini */
+.img img{
+margin: 0 8px;
+}
+
+/* Impostazioni dell'intero gruppo di Menu */
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-items:center;
+    margin-top: 20px;
+}
+
+
+.dropdown {
+    margin: 0 10px;
+    position: relative;
+    /* Imposto le Celle Menu */
+    width: 400px;
+    height: 60px;
+    background: #0E79B2;
+    color: #fff;
+    font-size: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dropdown .left-icon,
+.dropdown .right-icon {
+    position: relative;
+    top: 2px;
+    display: inline-block;
+    width: 15px;
+    height: 5px;
+    background: #fff;
+    border-radius: 40px;
+    transition: .5s;
+}
+
+/* left-right icon si riferiscono all'animazione del triangolino che ruota alla pressione */
+.dropdown .left-icon {
+    left: 7px;
+    transform: rotate(45deg);
+}
+
+.dropdown.active .left-icon {
+    transform: rotate(135deg);
+}
+
+.dropdown .right-icon {
+    transform: rotate(-45deg);
+}
+
+.dropdown.active .right-icon {
+    transform: rotate(-135deg);
+}
+
+
+/* Imposta gli attributi degli elementi del sotto menu */
+.dropdown .items {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 215px;
+    margin-top: 63px;
+    overflow: hidden;
+    visibility: hidden;
+    transition: .5s;
+}
+
+/* Imposta la visibilità quando diventano active tramite javascript */
+
+.dropdown.active .items {
+    visibility: visible;
+}
+
+.dropdown.active {
+    background: #FF9F1C;
+    
+}
+
+/* Impostazione delle celle del sotto menu */
+.dropdown .items a {
+    position: relative;
+    /* Imposta il tipo di animazione */
+    left: -100%;
+    display: flex;
+    font-size: 20px;
+    background:#0E79B2 ;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    margin-top: 2.5px;
+    z-index: 1;
+    overflow: hidden;
+    transition: .5s;
+    transition-delay: calc(60ms * var(--i));
+}
+
+.dropdown.active .items a {
+    left: 0;
+}
+
+/* Imposta l'animazione di selezione sottomenu */
+.dropdown .items a span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /*  */
+    background: linear-gradient(to left,  #0E79B2, #03B5AA 60%);
+    z-index: -1; 
+    border-radius: inherit;
+    transform: translate( -250px);
+    transform-origin: left;
+    transition: .5s;
+}
+
+.dropdown .items a:hover span {
+    transform: rotate(0deg);
+}
+
+
+.buttons_column{
+    translate: 260px;
+    grid-row: 2 / span 6;
+}
+
+#popup_cronologia{
+    translate: -110%;
+    top: 22%;
+    left: 10%;
+}
+
+#popup_bm{
+    translate: -150%;
+    top: 8%;
+    left: 10%;
+}
+
+.popup_list_visit{
+    top: 10%;
+    left: 17%;
+    translate: -130%
+}
+
+/* GESTIONE COTENUTI NASCOTI MENU */
+.hidden-content {
+    display: none;
+}
+.right_section .content-visible {
+    display: block;
+}
+/* GESTIONE PULSANTI MENU NASCOSTO*/
+
+
+
+#element-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 10px;
+    padding: 10px;
+    justify-content: center
+}
+
+.dropdown_buttons {
+    margin: 0;
+    width: calc(50% - 10px); /* Larghezza del 50% con uno spazio di 10px tra i pulsanti */
+    height: 35px;
+    min-width: 100px; /* Larghezza minima di 100px */
+    max-width: 180px;
+    background-color: #5e676bcf;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: Lato;
+    font-size: 18px;
+    overflow: hidden;
+}
+/* Rimuovi il bordo nero dai pulsanti */
+.dropdown_buttons {
+    border: none;
+}
+
+/* Imposta il cursore come il cursore predefinito */
+.dropdown_buttons {
+    cursor: default;
+}
